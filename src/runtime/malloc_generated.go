@@ -142,7 +142,11 @@ func mallocgcSmallScanNoHeaderSC1(size uintptr, typ *_type, needzero bool) unsaf
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -292,7 +296,11 @@ func mallocgcSmallScanNoHeaderSC2(size uintptr, typ *_type, needzero bool) unsaf
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -442,7 +450,11 @@ func mallocgcSmallScanNoHeaderSC3(size uintptr, typ *_type, needzero bool) unsaf
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -592,7 +604,11 @@ func mallocgcSmallScanNoHeaderSC4(size uintptr, typ *_type, needzero bool) unsaf
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -742,7 +758,11 @@ func mallocgcSmallScanNoHeaderSC5(size uintptr, typ *_type, needzero bool) unsaf
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -892,7 +912,11 @@ func mallocgcSmallScanNoHeaderSC6(size uintptr, typ *_type, needzero bool) unsaf
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1042,7 +1066,11 @@ func mallocgcSmallScanNoHeaderSC7(size uintptr, typ *_type, needzero bool) unsaf
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1146,7 +1174,11 @@ func mallocgcTinySC2(size uintptr, typ *_type, needzero bool) unsafe.Pointer {
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1242,7 +1274,11 @@ func mallocgcSmallNoScanSC2(size uintptr, typ *_type, needzero bool) unsafe.Poin
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1338,7 +1374,11 @@ func mallocgcSmallNoScanSC3(size uintptr, typ *_type, needzero bool) unsafe.Poin
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1434,7 +1474,11 @@ func mallocgcSmallNoScanSC4(size uintptr, typ *_type, needzero bool) unsafe.Poin
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1530,7 +1574,11 @@ func mallocgcSmallNoScanSC5(size uintptr, typ *_type, needzero bool) unsafe.Poin
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1626,7 +1674,11 @@ func mallocgcSmallNoScanSC6(size uintptr, typ *_type, needzero bool) unsafe.Poin
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
@@ -1722,7 +1774,11 @@ func mallocgcSmallNoScanSC7(size uintptr, typ *_type, needzero bool) unsafe.Poin
 
 	publicationBarrier()
 
-	span.freeIndexForScan = span.freeindex
+	if writeBarrier.enabled {
+		gcmarknewobject(span, uintptr(x))
+	} else {
+		span.freeIndexForScan = span.freeindex
+	}
 
 	c.nextSample -= int64(elemsize)
 	if c.nextSample < 0 || MemProfileRate != c.memProfRate {
